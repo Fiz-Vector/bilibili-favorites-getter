@@ -50,7 +50,7 @@ public class FavGetter {
             FolderResult result = GSON.fromJson(new InputStreamReader(in), FolderResult.class);
             if (realResult != null) realResult.data.medias.addAll(result.data.medias);
             else realResult = result;
-            System.out.println("获取收藏夹" + i + "/" + folder.media_count);
+            System.out.println("获取收藏夹" + i + "/" + pages);
         }
         return realResult;
     }
