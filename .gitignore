@@ -1,0 +1,6 @@
+conf.txt
+output/
+
+.gradle
+build/
+.idea/

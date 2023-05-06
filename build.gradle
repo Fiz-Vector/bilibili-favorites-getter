@@ -1,0 +1,23 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+}
+
+group = 'me.soda'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10'
+    shadow 'com.google.code.gson:gson:2.10'
+}
+
+jar {
+    dependsOn shadowJar
+    manifest {
+        attributes 'Main-Class': 'me.soda.bfg.Main'
+    }
+}
