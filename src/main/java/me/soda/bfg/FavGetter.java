@@ -9,8 +9,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class FavGetter {
     private static final HttpClient CLIENT = HttpClient.newHttpClient();
@@ -29,12 +29,10 @@ public class FavGetter {
     }
 
     // 获取多个收藏夹所有视频
-    public List<FolderResult> getFolderResults(List<FavFolder> folders) throws IOException, InterruptedException {
-        List<FolderResult> results = new ArrayList<>();
+    public void getFolderResults(List<FavFolder> folders, Consumer<FolderResult> callback) throws IOException, InterruptedException {
         for (FavFolder folder : folders) {
-            results.add(getFolderResult(folder));
+            callback.accept(getFolderResult(folder));
         }
-        return results;
     }
 
     // 获取单个收藏夹所有视频
